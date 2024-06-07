@@ -42,21 +42,19 @@ extension GiveawaysGamesView {
         VStack {
             if selectedPlatform == "All" {
                 ForEach($viewModel.allGiveaways) { $giveaway in
-                    GiveawayRow(giveaway: giveaway, isLoved: giveaway.isLoved, onLove: {
-                        giveaway.isLoved.toggle()
-                    })
-                    .onTapGesture {
-                        // Navigate to detail view or handle tap
-                    }
+                    NavigationLink(destination: GiveawayDetailView(viewModel: viewModel, giveaway: giveaway)) {
+                                            GiveawayRow(giveaway: giveaway, isLoved: giveaway.isLoved, onLove: {
+                                                giveaway.isLoved.toggle()
+                                            })
+                                        }
                 }
             } else {
                 ForEach($viewModel.platformGiveaways) { $giveaway in
-                    GiveawayRow(giveaway: giveaway, isLoved: giveaway.isLoved, onLove: {
-                        giveaway.isLoved.toggle()
-                    })
-                    .onTapGesture {
-                        // Navigate to detail view or handle tap
-                    }
+                    NavigationLink(destination: GiveawayDetailView(viewModel: viewModel, giveaway: giveaway)) {
+                                            GiveawayRow(giveaway: giveaway, isLoved: giveaway.isLoved, onLove: {
+                                                giveaway.isLoved.toggle()
+                                            })
+                                        }
                 }
             }
             

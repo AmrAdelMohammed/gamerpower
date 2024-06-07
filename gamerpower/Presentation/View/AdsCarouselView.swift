@@ -46,14 +46,13 @@ struct AdsCarouselView: View {
                                 }
                                 .background(Color.black.opacity(0.5))
                                 .cornerRadius(10)
-                                .padding()
                             }
                             .cornerRadius(10)
                             .shadow(radius: 5)
-//                            .rotation3DEffect(
-//                                .degrees(Double(innerGeometry.frame(in: .global).midX - outerGeometry.size.width / 2) / -20),
-//                                axis: (x: 0.5, y: 0, z: 0.5)
-//                            )
+                            .rotation3DEffect(
+                                .degrees(Double(innerGeometry.frame(in: .global).midX - outerGeometry.size.width / 2) / -20),
+                                axis: (x: 0.5, y: 0, z: 0)
+                            )
                         }
                         .frame(width: outerGeometry.size.width * 0.8, height: 200)
                     }

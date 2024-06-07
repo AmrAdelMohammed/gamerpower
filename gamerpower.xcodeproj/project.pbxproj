@@ -26,6 +26,7 @@
 		3F2036332C13A51900128FED /* AdsCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2036322C13A51900128FED /* AdsCarouselView.swift */; };
 		3F2036352C13AA7F00128FED /* GiveawaysGamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2036342C13AA7F00128FED /* GiveawaysGamesView.swift */; };
 		3F2036372C13AB0100128FED /* GiveawaysView+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2036362C13AB0100128FED /* GiveawaysView+Properties.swift */; };
+		3F2036392C13BCC800128FED /* GiveawayDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2036382C13BCC800128FED /* GiveawayDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		3F2036322C13A51900128FED /* AdsCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsCarouselView.swift; sourceTree = "<group>"; };
 		3F2036342C13AA7F00128FED /* GiveawaysGamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveawaysGamesView.swift; sourceTree = "<group>"; };
 		3F2036362C13AB0100128FED /* GiveawaysView+Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GiveawaysView+Properties.swift"; sourceTree = "<group>"; };
+		3F2036382C13BCC800128FED /* GiveawayDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveawayDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 				3F2036322C13A51900128FED /* AdsCarouselView.swift */,
 				3F2036342C13AA7F00128FED /* GiveawaysGamesView.swift */,
 				3F2036362C13AB0100128FED /* GiveawaysView+Properties.swift */,
+				3F2036382C13BCC800128FED /* GiveawayDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 			files = (
 				3F2036372C13AB0100128FED /* GiveawaysView+Properties.swift in Sources */,
 				3F20361C2C13290200128FED /* NetworkService.swift in Sources */,
+				3F2036392C13BCC800128FED /* GiveawayDetailView.swift in Sources */,
 				3F2036312C13A42F00128FED /* GiveawayRow.swift in Sources */,
 				3F2036172C13277E00128FED /* Giveaway.swift in Sources */,
 				3F2036332C13A51900128FED /* AdsCarouselView.swift in Sources */,

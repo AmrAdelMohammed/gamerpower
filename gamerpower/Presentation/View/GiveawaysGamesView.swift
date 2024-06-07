@@ -12,15 +12,18 @@ struct GiveawaysGamesView: View {
     @State var selectedPlatform = "All"
     
     var body: some View {
-        ScrollView{
-            VStack(alignment: .leading){
-                header
-                Text("Expolre\nGames Giveaways").font(.title).fontWeight(.bold).padding(.horizontal)
-                adsView
-                tagView
-                gamesView
+        NavigationView{
+            ScrollView{
+                VStack(alignment: .leading){
+                    header
+                    Text("Expolre\nGames Giveaways").font(.title).fontWeight(.bold).padding(.horizontal)
+                    adsView
+                    tagView
+                    gamesView
+                }
             }
         }
+        .navigationBarHidden(true)
     }
 }
 

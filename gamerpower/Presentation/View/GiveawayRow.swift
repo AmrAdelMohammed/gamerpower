@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct GiveawayRow: View {
-    let giveaway: Giveaway
-    @State private var isLoved: Bool = false
+    @State var giveaway: Giveaway
     let onLove: () -> Void
     init(giveaway: Giveaway, isLoved: Bool,onLove: @escaping () -> Void){
         self.giveaway = giveaway
-        self.isLoved = giveaway.isLoved
         self.onLove = onLove
     }
     var body: some View {
@@ -37,6 +35,7 @@ struct GiveawayRow: View {
                     VStack(alignment: .leading){
                         Text(giveaway.title ?? "")
                             .font(.headline)
+                            .multilineTextAlignment(.leading)
                             .foregroundColor(.white)
                             .padding(.leading, 10)
                         Text(giveaway.platforms ?? "")
@@ -45,16 +44,17 @@ struct GiveawayRow: View {
                             .padding(.leading, 10)
                     }
                     Spacer()
-                    Image(systemName:  isLoved ? "heart.fill" : "heart").resizable().frame(width: 25,height: 25)
+                    Image(systemName:  giveaway.isLoved ? "heart.fill" : "heart").resizable().frame(width: 25,height: 25)
                         .foregroundColor(.white)
                         .onTapGesture {
-                            isLoved.toggle()
+                            giveaway.isLoved.toggle()
                             onLove()
                         }.padding(.trailing)
                     
                 }
                 Spacer()
                 Text(giveaway.description ?? "")
+                    .multilineTextAlignment(.leading)
                     .font(.subheadline).lineLimit(4)
                     .foregroundColor(.white)
                     .padding(10)
