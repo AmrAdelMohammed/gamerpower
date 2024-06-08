@@ -9,11 +9,17 @@ import Foundation
 import Combine
 import Moya
 
-class GiveawayRepo {
-    private let networkService: NetworkService
+protocol GiveawayRepoContract{
+    func getAllGiveaways() -> AnyPublisher<[Giveaway], Error>
+    func getGiveaways(for platform: String) -> AnyPublisher<[Giveaway], Error>
+    func getPlatforms() -> [String]
+}
+
+class GiveawayRepo: GiveawayRepoContract {
+    private let networkService: NetworkServiceContract
     private var platforms: [String] = ["All"]
 
-    init(networkService: NetworkService = NetworkService()) {
+    init(networkService: NetworkServiceContract = NetworkService()) {
         self.networkService = networkService
     }
 

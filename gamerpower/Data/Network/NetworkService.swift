@@ -9,7 +9,11 @@ import Foundation
 import Combine
 import Moya
 
-class NetworkService {
+protocol NetworkServiceContract{
+    func request<T: Decodable>(_ target: API, type: T.Type) -> AnyPublisher<T, Error>
+}
+
+class NetworkService : NetworkServiceContract{
     private let provider: MoyaProvider<API>
 
     init(provider: MoyaProvider<API> = MoyaProvider<API>()) {

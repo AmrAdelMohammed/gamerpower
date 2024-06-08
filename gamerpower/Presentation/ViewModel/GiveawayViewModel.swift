@@ -11,7 +11,7 @@ import SwiftUI
 
 class GiveawayViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
-    private let giveawayRepo: GiveawayRepo
+    private let giveawayRepo: GiveawayRepoContract
 
     @Published var allGiveaways: [Giveaway] = []
     @Published var platformGiveaways: [Giveaway] = []
@@ -19,7 +19,7 @@ class GiveawayViewModel: ObservableObject {
     @Published var epicGamesGiveaways: [Giveaway] = []
     @Published var platforms: [String] = []
 
-    init(giveawayRepo: GiveawayRepo = GiveawayRepo()) {
+    init(giveawayRepo: GiveawayRepoContract = GiveawayRepo()) {
         self.giveawayRepo = giveawayRepo
         fetchAllGiveaways()
         fetchEpicGamesGiveaways()
