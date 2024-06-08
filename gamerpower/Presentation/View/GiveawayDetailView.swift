@@ -137,6 +137,7 @@ struct GiveawayDetailView: View {
         private func toggleLove() {
             if let index = viewModel.allGiveaways.firstIndex(where: { $0.id == giveaway.id }) {
                 viewModel.allGiveaways[index].isLoved.toggle()
+                viewModel.objectWillChange.send()
                 giveaway.isLoved.toggle()
             }
         }

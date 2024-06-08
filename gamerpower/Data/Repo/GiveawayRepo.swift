@@ -39,7 +39,7 @@ class GiveawayRepo: GiveawayRepoContract {
         return platforms
     }
 
-    private func extractPlatforms(from giveaways: [Giveaway]) {
+    func extractPlatforms(from giveaways: [Giveaway]) {
         var platformSet: Set<String> = ["All"]
         for giveaway in giveaways {
             platformSet.formUnion(giveaway.platformList)

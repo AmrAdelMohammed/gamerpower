@@ -40,7 +40,6 @@ extension GiveawaysGamesView {
     }
     var gamesView: some View{
         VStack {
-            if selectedPlatform == "All" {
                 ForEach($viewModel.allGiveaways) { $giveaway in
                     NavigationLink(destination: GiveawayDetailView(viewModel: viewModel, giveaway: giveaway)) {
                                             GiveawayRow(giveaway: giveaway, isLoved: giveaway.isLoved, onLove: {
@@ -48,15 +47,6 @@ extension GiveawaysGamesView {
                                             })
                                         }
                 }
-            } else {
-                ForEach($viewModel.platformGiveaways) { $giveaway in
-                    NavigationLink(destination: GiveawayDetailView(viewModel: viewModel, giveaway: giveaway)) {
-                                            GiveawayRow(giveaway: giveaway, isLoved: giveaway.isLoved, onLove: {
-                                                giveaway.isLoved.toggle()
-                                            })
-                                        }
-                }
-            }
             
             if let errorMessage = viewModel.errorMessage {
                 Text("Error: \(errorMessage)").foregroundColor(.red)

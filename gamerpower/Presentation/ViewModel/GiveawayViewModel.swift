@@ -13,8 +13,10 @@ class GiveawayViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     private let giveawayRepo: GiveawayRepoContract
 
-    @Published var allGiveaways: [Giveaway] = []
-    @Published var platformGiveaways: [Giveaway] = []
+    @Published var allGiveaways: [Giveaway] = [] {didSet{
+        print("First \(allGiveaways.first?.isLoved ?? false)")
+    }}
+//    @Published var platformGiveaways: [Giveaway] = []
     @Published var errorMessage: String?
     @Published var epicGamesGiveaways: [Giveaway] = []
     @Published var platforms: [String] = []
@@ -46,7 +48,7 @@ class GiveawayViewModel: ObservableObject {
                     self.errorMessage = error.localizedDescription
                 }
             }, receiveValue: { giveaways in
-                self.platformGiveaways = giveaways
+                self.allGiveaways = giveaways
             })
             .store(in: &cancellables)
     }

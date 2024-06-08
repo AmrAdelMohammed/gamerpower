@@ -19,7 +19,9 @@ struct Giveaway: Codable, Identifiable, Equatable {
     var users: Int?
     var status: Status?
     var gamerpowerURL, openGiveaway: String?
-    var isLoved: Bool = false
+    var isLoved: Bool = false {didSet{
+        print(isLoved)
+    }}
     var platformList: [String] {
         return (platforms?.split(separator: ",") ?? []).map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
     }
@@ -33,6 +35,10 @@ struct Giveaway: Codable, Identifiable, Equatable {
         case users, status
         case gamerpowerURL = "gamerpower_url"
         case openGiveaway = "open_giveaway"
+    }
+    
+    static func ==(lhs: Giveaway, rhs: Giveaway) -> Bool {
+        return lhs.id == rhs.id && lhs.isLoved == rhs.isLoved
     }
 }
 
