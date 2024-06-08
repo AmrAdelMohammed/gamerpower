@@ -9,14 +9,13 @@ import SwiftUI
 
 struct GiveawayDetailView: View {
     @Environment(\.presentationMode) var presentationMode
-        @ObservedObject var viewModel: GiveawayViewModel
-        @State var giveaway: Giveaway
-        
-        var body: some View {
-            ScrollView {
-                VStack {
-                    ZStack(alignment: .top) {
-                        AsyncImage(url: URL(string: giveaway.image ?? "")) { phase in
+    @State var giveaway: Giveaway
+    let onLove: () -> Void
+    var body: some View {
+        ScrollView {
+            VStack {
+                ZStack(alignment: .top) {
+                    AsyncImage(url: URL(string: giveaway.image ?? "")) { phase in
                             switch phase {
                             case .empty:
                                 Color.gray.opacity(0.3)
@@ -47,7 +46,8 @@ struct GiveawayDetailView: View {
                                 Spacer()
                                 
                                 Button(action: {
-                                    toggleLove()
+                                    onLove()
+                                    giveaway.isLoved.toggle()
                                 }) {
                                     Image(systemName: giveaway.isLoved ? "heart.fill" : "heart")
                                         .foregroundColor(.white)
@@ -134,16 +134,8 @@ struct GiveawayDetailView: View {
             .navigationBarHidden(true)
         }
         
-        private func toggleLove() {
-            if let index = viewModel.allGiveaways.firstIndex(where: { $0.id == giveaway.id }) {
-                viewModel.allGiveaways[index].isLoved.toggle()
-                viewModel.objectWillChange.send()
-                giveaway.isLoved.toggle()
-            }
-        }
-    
 }
 
 #Preview {
-    GiveawayDetailView(viewModel: GiveawayViewModel(), giveaway: Giveaway())
+    GiveawayDetailView(giveaway: Giveaway(), onLove: {})
 }

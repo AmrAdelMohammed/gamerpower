@@ -41,9 +41,9 @@ extension GiveawaysGamesView {
     var gamesView: some View{
         VStack {
                 ForEach($viewModel.allGiveaways) { $giveaway in
-                    NavigationLink(destination: GiveawayDetailView(viewModel: viewModel, giveaway: giveaway)) {
+                    NavigationLink(destination: GiveawayDetailView(giveaway: giveaway, onLove: {viewModel.toggleFav(giveaway: giveaway)})) {
                                             GiveawayRow(giveaway: giveaway, isLoved: giveaway.isLoved, onLove: {
-                                                giveaway.isLoved.toggle()
+                                                viewModel.toggleFav(giveaway: giveaway)
                                             })
                                         }
                 }

@@ -19,9 +19,7 @@ struct Giveaway: Codable, Identifiable, Equatable {
     var users: Int?
     var status: Status?
     var gamerpowerURL, openGiveaway: String?
-    var isLoved: Bool = false {didSet{
-        print(isLoved)
-    }}
+    var isLoved: Bool = false 
     var platformList: [String] {
         return (platforms?.split(separator: ",") ?? []).map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
     }

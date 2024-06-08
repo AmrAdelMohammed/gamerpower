@@ -22,6 +22,8 @@ struct GiveawaysGamesView: View {
                     gamesView
                 }
             }
+        }.onAppear {
+           
         }
         .navigationBarHidden(true)
     }

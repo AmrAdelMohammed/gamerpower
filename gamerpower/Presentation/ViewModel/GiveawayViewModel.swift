@@ -13,10 +13,7 @@ class GiveawayViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     private let giveawayRepo: GiveawayRepoContract
 
-    @Published var allGiveaways: [Giveaway] = [] {didSet{
-        print("First \(allGiveaways.first?.isLoved ?? false)")
-    }}
-//    @Published var platformGiveaways: [Giveaway] = []
+    @Published var allGiveaways: [Giveaway] = []
     @Published var errorMessage: String?
     @Published var epicGamesGiveaways: [Giveaway] = []
     @Published var platforms: [String] = []
@@ -71,5 +68,11 @@ class GiveawayViewModel: ObservableObject {
             platformSet.formUnion(giveaway.platformList)
         }
         self.platforms = Array(platformSet).sorted()
+    }
+    
+    func toggleFav(giveaway: Giveaway){
+        if let index = allGiveaways.firstIndex(where: { $0.id == giveaway.id }) {
+            allGiveaways[index].isLoved.toggle()
+        }
     }
 }
